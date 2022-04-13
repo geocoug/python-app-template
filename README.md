@@ -1,7 +1,7 @@
 # Python + Docker Development Template
 
 [![Docker](https://github.com/geocoug/python-app-template/actions/workflows/docker-image.yml/badge.svg)](https://github.com/geocoug/python-app-template/actions)
-[![GitHub Super-Linter](https://github.com/geocoug/python-app-template/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/geocoug/python-app-template/workflows/lint%20code%20base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![license](https://img.shields.io/github/license/geocoug/python-app-template)
 
