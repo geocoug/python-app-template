@@ -31,10 +31,10 @@ Generalized starter template for creating and deploying Python applications with
 
 ```dockerfile
 # Base image
-FROM python:latest
+FROM python:3.10-slim
 
 # Set working directory
-WORKDIR /usr/src/app
+WORKDIR /usr/local/app
 
 # Move files to working directory
 COPY . .
@@ -55,13 +55,17 @@ RUN pip install --no-cache-dir -r requirements.txt
 CMD [ "python", "./app/main.py" ]
 ```
 
-1. Build image: `docker build -t myapp-image .`
+1. Build image: `cd app && docker build -t myapp-image .`
 
 1. Run app
 
     1. Terminate container when finished: `docker run -it --rm myapp-image`
 
     1. Run in background: `docker run -d --name myapp-container myapp-image`
+
+**OR**
+
+1. Compose: `docker compose up`
 
 ## Git / GitHub
 
@@ -130,7 +134,7 @@ jobs:
 # App Name
 
 [![Docker](https://github.com/geocoug/<REPOSITORY>/workflows/docker%20build/badge.svg)](https://github.com/geocoug/<REPOSITORY>/actions)
-[![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/lint%20code%20base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![license](https://img.shields.io/github/license/geocoug/<repo-name>)
 [![website status](https://img.shields.io/website.svg?down_color=red&down_message=down&up_color=green&up_message=up&url=http%3A%2F%2Fgeocoug.github.io)](https://geocoug.github.io
