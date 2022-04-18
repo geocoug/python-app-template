@@ -63,9 +63,7 @@ CMD [ "python", "./app/main.py" ]
 
     1. Run in background: `docker run -d --name myapp-container myapp-image`
 
-**OR**
-
-1. Compose: `docker compose up`
+1. Or compose: `docker compose up`
 
 ## Git / GitHub
 
