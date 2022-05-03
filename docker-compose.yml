@@ -3,12 +3,11 @@ version: '3.9'
 
 services:
   app:
-    build: ./app
-    # restart: always
-    # ports:
-      # - "8080:8080"
-    # volumes:
-    #   - type: bind
-    #   source: ./data
-    #   target: /data
-    # command:
+    build: 
+      context: ./app
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./app
+        target: /usr/local/app
+    command: python main.py
