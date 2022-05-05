@@ -1,5 +1,6 @@
 # Python + Docker Development Template
 
+[![test](https://github.com/geocoug/python-app-template/actions/workflows/tests.yml/badge.svg)](https://github.com/geocoug/python-app-template/actions/workflows/tests.yml)
 [![Docker](https://github.com/geocoug/python-app-template/workflows/docker%20build/badge.svg)](https://github.com/geocoug/python-app-template/actions)
 [![GitHub Super-Linter](https://github.com/geocoug/python-app-template/workflows/lint%20code%20base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -147,6 +148,7 @@ jobs:
 ```md
 # App Name
 
+[![test](https://github.com/geocoug/<REPOSITORY>/actions/workflows/tests.yml/badge.svg)](https://github.com/geocoug/<REPOSITORY>/actions/workflows/tests.yml)
 [![Docker](https://github.com/geocoug/<REPOSITORY>/workflows/docker%20build/badge.svg)](https://github.com/geocoug/<REPOSITORY>/actions)
 [![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/lint%20code%20base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
