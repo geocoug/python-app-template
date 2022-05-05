@@ -6,7 +6,7 @@ WORKDIR ${APPDIR}
 
 COPY requirements.txt .
 
-ENV PYTHON_VENV=/opt/pyenv
+ENV PYTHON_VENV=/opt/env
 
 RUN python -m venv $PYTHON_VENV 
 

@@ -4,10 +4,10 @@ version: '3.9'
 services:
   app:
     build: 
-      context: ./app
+      context: .
       dockerfile: Dockerfile
     volumes:
       - type: bind
         source: ./app
         target: /usr/local/app
-    command: python main.py
+    command: python ./main.py

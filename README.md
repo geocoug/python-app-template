@@ -28,7 +28,7 @@ Generalized starter template for creating and deploying Python applications with
 
 ## Docker
 
-1. Create Dockerfile under main app directory: `touch ./app/Dockerfile`:
+1. Create docker image: `touch ./Dockerfile`:
 
    ```dockerfile
    # Base image
@@ -56,13 +56,13 @@ Generalized starter template for creating and deploying Python applications with
    RUN pip install --no-cache-dir -r requirements.txt
    ```
 
-1. Build image: `docker build -t myapp-image ./app`
+1. Build image: `docker build -t myapp .`
 
-1. Run app
+1. Run image
 
-   1. Terminate container when finished: `docker run -it --rm myapp-image`
+   1. Terminate container when finished: `docker run -it --rm myapp`
 
-   1. Run in background: `docker run -d --name myapp-container myapp-image`
+   1. Run in background: `docker run -d --name myapp-container myapp`
 
 1. Or, build multiple services with compose:
 
@@ -73,13 +73,13 @@ Generalized starter template for creating and deploying Python applications with
    services:
      app:
        build:
-         context: ./app
+         context: .
          dockerfile: Dockerfile
        volumes:
          - type: bind
            source: ./app
            target: /usr/local/app
-       command: python main.py
+       command: python ./main.py
    ```
 
 ## Git / GitHub
