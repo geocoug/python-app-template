@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import pytest
 from app.main import Data, data_dict, new_column, new_data
@@ -26,9 +25,7 @@ def test_add_dataframe_column_vals():
     d = Data(data_dict)
     d.add_dataframe_column(new_column)
     for idx, row in enumerate(d.df[new_column]):
-        assert pd.isna(
-            d.df.iloc[idx, 3]
-        ), "column initiated with value other than np.NaN"
+        assert pd.isna(d.df.iloc[idx, 3]), "column initiated with value other than NaN"
 
 
 def test_fill_dataframe_column():
