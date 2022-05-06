@@ -1,18 +1,18 @@
 # Python + Docker Development Template
 
 [![test](https://github.com/geocoug/python-app-template/actions/workflows/test.yml/badge.svg)](https://github.com/geocoug/python-app-template/actions/workflows/test.yml)
-[![Docker](https://github.com/geocoug/python-app-template/workflows/docker%20build/badge.svg)](https://github.com/geocoug/python-app-template/actions)
-[![GitHub Super-Linter](https://github.com/geocoug/python-app-template/workflows/lint%20code%20base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+[![Docker](https://github.com/geocoug/python-app-template/workflows/docker%20build/badge.svg)](https://github.com/geocoug/python-app-template/actions/workflows/docker-build.yml)
+[![GitHub Super-Linter](https://github.com/geocoug/python-app-template/workflows/lint%20code%20base/badge.svg)](https://github.com/geocoug/python-app-template/actions/workflows/linter.yml)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 ![license](https://img.shields.io/github/license/geocoug/python-app-template)
 
-Generalized starter template for creating and deploying Python applications with Docker.
+Generalized starter template for developing Python applications.
 
 ## Setup
 
 1. Create project directory: `mkdir my-project && cd my-project`
 
-1. Create app directory: `mkdir app && touch ./app/main.py`:
+1. Create app directory: `mkdir app && touch ./app/main.py`
 
 ## Python Environment
 
@@ -20,9 +20,9 @@ Generalized starter template for creating and deploying Python applications with
 
 1. Activate environment: `source env/bin/activate`
 
-1. Verify environment: `which python`
+1. Verify environment: `where python`
 
-1. Install dependencies: `pip install pandas black flake8 pytest`
+1. Install dependencies: `pip install black flake8 pytest`
 
 1. Export Python requirements: `pip freeze > requirements.txt`
 
@@ -56,15 +56,15 @@ Generalized starter template for creating and deploying Python applications with
    RUN pip install --no-cache-dir -r requirements.txt
    ```
 
-1. Build image: `docker build -t myapp .`
+1. Build the image: `docker build -t myapp .`
 
-1. Run image
+1. Run the image, using a bind mount to attach our application code (`./app/`) to the container:
 
-   1. Terminate container when finished: `docker run -it --rm myapp`
+   1. Terminate container when finished: `docker run -it --rm -v $(pwd)/app:/usr/local/app myapp`
 
-   1. Run in background: `docker run -d --name myapp-container myapp`
+   1. Run in background: `docker run -d --name myapp-container -v $(pwd)/app:/usr/local/app myapp`
 
-1. Or, build multiple services with compose:
+1. Or, build multiple services with `docker compose`:
 
    ```yaml
    ---
@@ -88,7 +88,7 @@ Generalized starter template for creating and deploying Python applications with
 
 1. Create .gitignore: `echo env/ > .gitignore`
 
-1. Create docker action: `mkdir -p .github/workflows && touch .github/workflows/docker-image.yml`:
+1. Create docker action: `mkdir -p .github/workflows && touch .github/workflows/docker-build.yml`:
 
    ```yml
    ---
@@ -105,7 +105,7 @@ Generalized starter template for creating and deploying Python applications with
        runs-on: ubuntu-latest
        steps:
          - uses: actions/checkout@v2
-         - name: Build the Docker image
+         - name: Build the Docker stack
            run: docker compose up -d
    ```
 
@@ -168,30 +168,29 @@ Generalized starter template for creating and deploying Python applications with
            run: |
              python -m pip install --upgrade pip
              pip install flake8 pytest
-             if [ -f ./app/requirements.txt ]; then pip install -r ./app/requirements.txt; fi
+             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
          - name: Test with pytest
            run: |
              python -m pytest -v
    ```
 
-1. Create GitHub repository
+1. Create remote [GitHub](https://github.com) repository.
 
-1. Set remote: `git remote add origin <url>`
+1. Set remote url: `git remote add origin <url>`
 
-1. Create `README.md`:
+1. Create a `README.md`:
 
    ```md
    # App Name
 
-   [![test](https://github.com/geocoug/<REPOSITORY>/actions/workflows/tests.yml/badge.svg)](https://github.com/geocoug/<REPOSITORY>/actions/workflows/tests.yml)
-   [![Docker](https://github.com/geocoug/<REPOSITORY>/workflows/docker%20build/badge.svg)](https://github.com/geocoug/<REPOSITORY>/actions)
-   [![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/lint%20code%20base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+   [![test](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/tests.yml/badge.svg)](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/tests.yml)
+   [![Docker](https://github.com/<OWNER>/<REPOSITORY>/workflows/docker%20build/badge.svg)](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/docker-build.yml)
+   [![GitHub Super-Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/lint%20code%20base/badge.svg)](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/linter.yml)
    [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-   ![license](https://img.shields.io/github/license/geocoug/<repo-name>)
-   [![website status](https://img.shields.io/website.svg?down_color=red&down_message=down&up_color=green&up_message=up&url=http%3A%2F%2Fgeocoug.github.io)](https://geocoug.github.io
-
-   [View More Badges](https://shields.io/)
+   ![license](https://img.shields.io/github/license/<OWNER>/<REPOSITORY>)
    ```
+
+   [View more badges here.](https://shields.io/)
 
 1. Start revision tracking: `git add --all`
 
