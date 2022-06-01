@@ -18,11 +18,11 @@ Generalized starter template for developing Python applications.
 
 1. Create Local Python Environment: `python3 -m venv env`
 
-1. Activate environment: `source env/bin/activate`
+1. Activate environment: `source ./env/bin/activate`
 
 1. Verify environment: `where python`
 
-1. Install dependencies: `pip install black flake8 pytest`
+1. Install dependencies: `pip install black flake8 pytest pre-commit`
 
 1. Export Python requirements: `pip freeze > requirements.txt`
 
@@ -174,7 +174,7 @@ Generalized starter template for developing Python applications.
              python -m pytest -v
    ```
 
-1. Create remote [GitHub](https://github.com) repository.
+1. Create remote [GitHub](https://github.com) repository. See also: [create-github-repo](https://github.com/geocoug/create-github-repo)
 
 1. Set remote url: `git remote add origin <url>`
 
@@ -193,6 +193,8 @@ Generalized starter template for developing Python applications.
    [View more badges here.](https://shields.io/)
 
 1. Start revision tracking: `git add --all`
+
+1. Initialize pre-commit hook and test it: `pre-commit install && pre-commit run --all-files`
 
 1. Commit and sign changes: `git commit -S -m "init"`
 
