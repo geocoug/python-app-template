@@ -194,7 +194,38 @@ Generalized starter template for developing Python applications.
 
 1. Start revision tracking: `git add --all`
 
-1. Initialize pre-commit hook and test it: `pre-commit install && pre-commit run --all-files`
+1. Configure pre-commit hooks:
+
+   ```yml
+   ---
+   repos:
+     - repo: https://github.com/pre-commit/pre-commit-hooks
+       rev: v4.2.0
+       hooks:
+         - id: check-added-large-files
+         - id: check-yaml
+         - id: end-of-file-fixer
+         - id: trailing-whitespace
+         - id: requirements-txt-fixer
+     - repo: https://github.com/asottile/add-trailing-comma
+       rev: v2.2.3
+       hooks:
+         - id: add-trailing-comma
+           args: [--py36-plus]
+     - repo: https://github.com/psf/black
+       rev: 22.3.0
+       hooks:
+         - id: black
+     - repo: https://github.com/PyCQA/flake8
+       rev: 4.0.1
+       hooks:
+         - id: flake8
+           args: [--config, ./.github/linters/.flake8]
+   ```
+
+1. Install the hook environments: `pre-commit install --install-hooks`
+
+1. Test the pre-commit hooks: `pre-commit run --all-files`
 
 1. Commit and sign changes: `git commit -S -m "init"`
 
