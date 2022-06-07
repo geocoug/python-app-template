@@ -4,10 +4,23 @@ repos:
     rev: v4.2.0
     hooks:
       - id: check-added-large-files
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-json
       - id: check-yaml
       - id: end-of-file-fixer
-      - id: trailing-whitespace
+      - id: mixed-line-ending
       - id: requirements-txt-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/IamTheFij/docker-pre-commit
+    rev: v2.1.0
+    hooks:
+      - id: docker-compose-check
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.7.2
+    hooks:
+      - id: pyupgrade
+        args: [--py36-plus]
   - repo: https://github.com/asottile/add-trailing-comma
     rev: v2.2.3
     hooks:

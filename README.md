@@ -196,31 +196,46 @@ Generalized starter template for developing Python applications.
 
 1. Configure pre-commit hooks:
 
+   [Supported hooks](https://pre-commit.com/hooks.html)
+
    ```yml
-   ---
-   repos:
-     - repo: https://github.com/pre-commit/pre-commit-hooks
-       rev: v4.2.0
-       hooks:
-         - id: check-added-large-files
-         - id: check-yaml
-         - id: end-of-file-fixer
-         - id: trailing-whitespace
-         - id: requirements-txt-fixer
-     - repo: https://github.com/asottile/add-trailing-comma
-       rev: v2.2.3
-       hooks:
-         - id: add-trailing-comma
-           args: [--py36-plus]
-     - repo: https://github.com/psf/black
-       rev: 22.3.0
-       hooks:
-         - id: black
-     - repo: https://github.com/PyCQA/flake8
-       rev: 4.0.1
-       hooks:
-         - id: flake8
-           args: [--config, ./.github/linters/.flake8]
+    ---
+    repos:
+      - repo: https://github.com/pre-commit/pre-commit-hooks
+        rev: v4.2.0
+        hooks:
+          - id: check-added-large-files
+          - id: check-ast
+          - id: check-case-conflict
+          - id: check-json
+          - id: check-yaml
+          - id: end-of-file-fixer
+          - id: mixed-line-ending
+          - id: requirements-txt-fixer
+          - id: trailing-whitespace
+      - repo: https://github.com/IamTheFij/docker-pre-commit
+        rev: v2.1.0
+        hooks:
+          - id: docker-compose-check
+      - repo: https://github.com/asottile/pyupgrade
+        rev: v2.7.2
+        hooks:
+          - id: pyupgrade
+            args: [--py36-plus]
+      - repo: https://github.com/asottile/add-trailing-comma
+        rev: v2.2.3
+        hooks:
+          - id: add-trailing-comma
+            args: [--py36-plus]
+      - repo: https://github.com/psf/black
+        rev: 22.3.0
+        hooks:
+          - id: black
+      - repo: https://github.com/PyCQA/flake8
+        rev: 4.0.1
+        hooks:
+          - id: flake8
+            args: [--config, ./.github/linters/.flake8]
    ```
 
 1. Install the hook environments: `pre-commit install --install-hooks`
