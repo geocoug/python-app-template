@@ -1,10 +1,6 @@
 import pandas as pd
 import pytest
-
-from app.main import Data
-from app.main import data_dict
-from app.main import new_column
-from app.main import new_data
+from app.main import Data, data_dict, new_column, new_data
 
 
 def test_init_df():
