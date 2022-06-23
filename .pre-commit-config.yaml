@@ -30,6 +30,7 @@ repos:
     rev: v0.961
     hooks:
       - id: mypy
+        args: [--config-file=./.github/linters/.mypy.ini]
   - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:
@@ -38,4 +39,4 @@ repos:
     rev: 4.0.1
     hooks:
       - id: flake8
-        args: [--config, ./.github/linters/.flake8]
+        args: [--config=./.github/linters/.flake8]
