@@ -2,14 +2,18 @@ FROM python:3.10-slim
 
 ENV APPDIR=/usr/local/app
 
+ENV VENV=/opt/env
+
+ENV PYTHONDONTWRITEBYTECODE 1
+
+ENV PYTHONUNBUFFERED 1
+
 WORKDIR ${APPDIR}
 
+RUN python -m venv $VENV
+
+ENV PATH="$VENV/bin:$PATH"
+
 COPY requirements.txt .
-
-ENV PYTHON_VENV=/opt/env
-
-RUN python -m venv $PYTHON_VENV
-
-ENV PATH="$PYTHON_VENV/bin:$PATH"
 
 RUN pip install --no-cache-dir -r requirements.txt

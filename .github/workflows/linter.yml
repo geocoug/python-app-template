@@ -39,5 +39,8 @@ jobs:
         uses: github/super-linter/slim@v4
         env:
           VALIDATE_ALL_CODEBASE: false
+          # https://github.com/github/super-linter#filter-linted-files
+          # FILTER_REGEX_INCLUDE:
+          # FILTER_REGEX_EXCLUDE:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

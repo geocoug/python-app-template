@@ -12,6 +12,11 @@ repos:
       - id: mixed-line-ending
       - id: requirements-txt-fixer
       - id: trailing-whitespace
+  - repo: https://github.com/markdownlint/markdownlint
+    rev: v0.11.0
+    hooks:
+      - id: markdownlint
+        args: [-t, ~line_length]
   - repo: https://github.com/IamTheFij/docker-pre-commit
     rev: v2.1.0
     hooks:
