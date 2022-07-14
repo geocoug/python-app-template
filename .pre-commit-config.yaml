@@ -46,6 +46,7 @@ repos:
     rev: 5.10.1
     hooks:
       - id: isort
+        args: [--profile=black]
   # Format Python docstrings
   - repo: https://github.com/DanielNoord/pydocstringformatter
     rev: v0.6.2
@@ -89,4 +90,4 @@ repos:
         language: system
         types: [python]
         entry: ./env/bin/pylint # Path to your Python environment
-        args: [--rcfile=./.github/linters/.python-lint]
+        args: [--rcfile=.pylintrc]
