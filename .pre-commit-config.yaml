@@ -84,10 +84,9 @@ repos:
   # Local hooks
   - repo: local
     hooks:
-      # Pylint needs to run locally because it requires script module imports
       - id: pylint
         name: pylint
         language: system
         types: [python]
-        entry: ./env/bin/pylint # Path to your Python environment
+        entry: ./env/bin/pylint
         args: [--rcfile=.pylintrc]
