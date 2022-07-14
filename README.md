@@ -12,7 +12,7 @@ Generalized starter template for developing Python applications.
 
 ### Unit Testing
 
-There are two popular unit testing frameworks for Python: [unittest](https://docs.python.org/3/library/unittest.html) and [pytest](https://docs.pytest.org). Unittest is a standard Python library while Pytest comes from a third party. One or both of them should be used on your code base.
+There are two popular unit testing frameworks for Python: [unittest](https://docs.python.org/3/library/unittest.html) and [pytest](https://docs.pytest.org). Unittest is a standard Python library while Pytest comes from a third party. One or both of them should be used on your codebase.
 
 - Test with unittest: `python -m unittest discover -v`
 
